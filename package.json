@@ -1,0 +1,14 @@
+{
+  "name": "iot-test",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "pi-pins": "~1.0.2",
+    "express": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "preinstall": "bash deps.sh",
+    "start": "node server.js"
+  }
+}
