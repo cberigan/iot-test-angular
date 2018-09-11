@@ -8,7 +8,6 @@
   },
   "devDependencies": {},
   "scripts": {
-    "preinstall": "bash deps.sh",
     "start": "node server.js"
   }
 }
