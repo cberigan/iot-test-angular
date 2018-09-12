@@ -9,5 +9,3 @@ node_modules/
 
 #OSX hidden metadata file
 .DS_Store
-
-.vs/
