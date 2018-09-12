@@ -4,6 +4,7 @@ FROM resin/%%RESIN_MACHINE_NAME%%-node:8
 RUN apt-get update && npm install @angular/cli -g
 
 WORKDIR /usr/src/app
+RUN mkdir -p /usr/src/app/dist
 
 COPY package.json package.json
 
