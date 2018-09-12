@@ -1,12 +1,12 @@
 var express = require('express');
-
+var path = require('path');
 
 var  ledRedToggle, ledGreenToggle, pressCount;
 //provision the gpio pins 22, 27 for the led output and 17 for the button input
 var ledRed = require("pi-pins").connect(22),
-    ledGreen = require("pi-pins").connect(27),
-    button = require("pi-pins").connect(17);
-
+   ledGreen = require("pi-pins").connect(27),
+   button = require("pi-pins").connect(17);
+    const html = __dirname + '/dist/iot-test-app';
 var app = express();
 
 
@@ -24,18 +24,30 @@ pressCount= 0;
 ledRed.value(false);
 ledGreen.value(false);
 
+
+const bodyParser = require('body-parser');
+const compression = require('compression');
+app.use(compression())
+.use(bodyParser.json())
+.use(bodyParser.urlencoded({extended: false}))
+.use(express.static(html))
+
 // reply to request with "Hello World!"
-app.get('/', function (req, res) {
-  res.send("button pressed: "+ (pressCount) +" time(s)");
+app.get('*', function (req, res) {
+  res.sendFile(path.join(html,'index.html'));
 });
 
 
 //toggle green light
-app.post('/toggle', function (req, res) {
-    ledGreenToggle = !ledGreenToggle;
-    ledGreen.value(ledGreenToggle);
-    res.sendStatus(200);
-  })
+app.post('/api/state', function (req, res) {
+  ledGreenToggle = !ledGreenToggle;
+  ledGreen.value(ledGreenToggle);
+  res.json({on: ledGreenToggle});
+})
+
+app.get('/api/state', function (req, res) {
+  res.json({on: ledGreenToggle});
+})
 
 //look for a button press event and switch on the LED for 2 seconds when this happens.
 button.on('rise', function () {

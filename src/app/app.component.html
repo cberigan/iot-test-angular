@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="main-container">
+  <header class="header-6">
+    <div class="branding">
+        <a href="..." class="nav-link">
+            <clr-icon shape="vm-bug"></clr-icon>
+            <span class="title">IOT Test</span>
+        </a>
+    </div>
+    <div class="header-actions">
+        <clr-dropdown>
+            <button class="nav-icon" clrDropdownTrigger>
+                <clr-icon shape="cog"></clr-icon>
+                <clr-icon shape="caret down"></clr-icon>
+            </button>
+            <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+                <a href="#" clrDropdownItem>About</a>
+            </clr-dropdown-menu>
+        </clr-dropdown>
+    </div>
+  </header>
+  <div class="content-container">
+      <div class="content-area">
+        <button [clrLoading]="reqInFlight" class="btn" [ngClass]="greenClass" (click)="toggleGreen()">GREEN LIGHT ({{greenState ? 'ON' : 'OFF'}})</button>
+      </div>
+  </div>
+</div>
