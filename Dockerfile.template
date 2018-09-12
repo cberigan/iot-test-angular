@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY package.json package.json
 
 RUN JOBS=MAX npm install --production --unsafe-perm && npm cache verify && rm -rf /tmp/*
-RUN JOBS=MAX npm install @angular-devkit/build-angular @angular/compiler-cli
+RUN JOBS=MAX npm install @angular-devkit/build-angular @angular/compiler-cli typescript
 
 COPY . ./
 
