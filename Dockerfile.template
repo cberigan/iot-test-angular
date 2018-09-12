@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 
 COPY package.json package.json
 
-RUN JOBS=MAX npm cache verify && npm install --production --unsafe-perm && rm -rf /tmp/*
+RUN JOBS=MAX npm cache verify && npm install --unsafe-perm && rm -rf /tmp/*
 
 COPY . ./
 
