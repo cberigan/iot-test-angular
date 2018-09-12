@@ -2,7 +2,7 @@ var express = require('express');
 
 
 var  ledRedToggle, ledGreenToggle, pressCount;
-//provision the gpio pins 22 for the led output and 17 for the button input
+//provision the gpio pins 22, 27 for the led output and 17 for the button input
 var ledRed = require("pi-pins").connect(22),
     ledGreen = require("pi-pins").connect(27),
     button = require("pi-pins").connect(17);
@@ -23,7 +23,6 @@ pressCount= 0;
 
 ledRed.value(false);
 ledGreen.value(false);
-
 
 // reply to request with "Hello World!"
 app.get('/', function (req, res) {
