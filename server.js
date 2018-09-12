@@ -27,7 +27,6 @@ ledGreen.value(false);
 
 // reply to request with "Hello World!"
 app.get('/', function (req, res) {
-  
   res.send("button pressed: "+ (pressCount) +" time(s)");
 });
 
