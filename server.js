@@ -22,12 +22,13 @@ led.value(true);
 // reply to request with "Hello World!"
 app.get('/', function (req, res) {
   
-  res.send("button pressed: "+ (++pressCount) +" time(s)");
+  res.send("button pressed: "+ (pressCount) +" time(s)");
 });
 
 //look for a button press event and switch on the LED for 2 seconds when this happens.
 button.on('rise', function () {
     ledToggle = !ledToggle;
+    pressCount++;
     led.value(ledToggle);
 });
 
