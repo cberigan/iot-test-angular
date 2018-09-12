@@ -34,6 +34,7 @@ app.get('/', function (req, res) {
 app.post('/toggle', function (req, res) {
     ledGreenToggle = !ledGreenToggle;
     ledGreen.value(ledGreenToggle);
+    res.sendStatus(200);
   })
 
 //look for a button press event and switch on the LED for 2 seconds when this happens.
