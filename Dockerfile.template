@@ -13,7 +13,6 @@ RUN JOBS=MAX npm install @angular-devkit/build-angular @angular/compiler-cli typ
 
 COPY . ./
 RUN npm run build
-COPY /dist /dist
 
 ENV INITSYSTEM on
 
